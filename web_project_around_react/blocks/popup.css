@@ -1,0 +1,314 @@
+.popup {
+  max-width: 430px;
+  max-height: 330px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  z-index: 2;
+}
+
+.popup__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.popup_visible {
+  display: none;
+}
+
+.popup__title {
+  width: 330px;
+  height: 23px;
+  margin: 34px 64px 40px 36px;
+  font-family: 'Inter-Black', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 100%;
+  color: #000;
+}
+
+.popup__container {
+  width: 358px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__input {
+  border: 0;
+  margin-left: 35px;
+}
+
+.popup__input::placeholder {
+  color: #c4c4c4;
+}
+
+.popup__input_type_card-name {
+  font-family: 'Inter-Regular', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 100%;
+  color: #000;
+}
+
+.popup__input_type_url {
+  font-family: 'Inter-Regular', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 100%;
+  color: #000;
+}
+
+.popup__submit-btn {
+  width: 358px;
+  height: 50px;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  color: #c4c4c4;
+  background-color: #000;
+  margin: 48px 36px;
+  cursor: pointer;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  font-family: 'Inter-Regular', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 100%;
+}
+
+.popup__submit-btn_invalid {
+  background-color: #fff;
+}
+
+.popup__submit-btn_black:hover {
+  opacity: 80%;
+}
+
+.popup__underline {
+  width: 358px;
+  border: 1px solid #000;
+  margin: 0;
+  margin-top: 13px;
+  margin-bottom: 30px;
+  margin-left: 35px;
+  opacity: 20%;
+}
+
+.popup__underline_invalid {
+  border: 1px solid #f00;
+  opacity: 100%;
+  margin-bottom: 0;
+}
+
+.popup__underline_last {
+  margin-bottom: 35px;
+}
+
+.popup__error {
+  margin: 6px 0 9px 35px;
+  color: #f00;
+  display: none;
+  font-family: 'Inter-Regular', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+.popup__error_active {
+  display: block;
+}
+
+.popup__close-tab,
+.popup__close {
+  background-image: url('/images/close_icon.png');
+  background-size: cover;
+  background-position: center;
+  background-color: #000;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  rotate: 45°;
+  position: fixed;
+  top: -40px;
+  right: -40px;
+  border: 0;
+  cursor: pointer;
+}
+
+.popup_type_image,
+.popup__content {
+  background-color: #fff;
+  max-width: 433px;
+  max-height: 540px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.popup__image-img,
+.popup__content_content_image {
+  width: 433px;
+  height: 540px;
+}
+
+.popup__image-title {
+  margin: 0;
+  margin-top: 10px;
+  color: #fff;
+  font-family: 'Inter-Regular', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+.popup__delete-card {
+  width: 430px;
+  height: 181px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  z-index: 2;
+}
+
+.popup__delete-card_title {
+  width: 330px;
+  height: 23px;
+  margin: 34px 36px 38px;
+  font-family: 'Inter-Black', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 100%;
+  color: #000;
+}
+
+.popup__delete-card_submit-btn {
+  width: 358px;
+  height: 50px;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  color: #c4c4c4;
+  background-color: #000;
+  margin: 0 36px 36px;
+  cursor: pointer;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  font-family: 'Inter-Regular', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 100%;
+}
+
+.popup__edit-profile-avatar {
+  width: 430px;
+  height: 272px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  z-index: 2;
+}
+
+.popup__edit-avatar-card-title {
+  width: 330px;
+  height: 23px;
+  margin: 34px 36px 38px;
+  font-family: 'Inter-Black', Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 100%;
+  color: #000;
+}
+
+.popup__delete-card_submit-btn,
+.button {
+  width: 358px;
+  height: 50px;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  color: #c4c4c4;
+  background-color: #000;
+  margin: 0 36px 36px;
+  cursor: pointer;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  font-family: 'Inter-Regular', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 100%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 544px) {
+  .popup {
+    max-width: 282px;
+    max-height: 322px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .popup__title {
+    width: 238px;
+    height: 22px;
+    margin: 25px 22px 76px;
+    font-size: 18px;
+  }
+
+  .popup__container {
+    width: 238px;
+  }
+
+  .popup__input {
+    margin-left: 22px;
+  }
+
+  .popup__submit-btn {
+    width: 238px;
+    height: 46px;
+    margin: 46px 22px 25px;
+  }
+
+  .popup__underline {
+    width: 238px;
+    margin: 9px 22px 30px;
+  }
+
+  .popup__underline_last {
+    margin-bottom: 0;
+  }
+
+  .popup__close-tab {
+    width: 26px;
+    height: 26px;
+    position: fixed;
+    top: -40px;
+    right: 0;
+  }
+
+  .popup__image {
+    max-width: 240px;
+    max-height: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .popup__image-img {
+    width: 240px;
+    height: 300px;
+  }
+
+  .popup__close-tab_image {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: -30px;
+    right: -30px;
+  }
+}
