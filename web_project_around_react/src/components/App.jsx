@@ -64,7 +64,7 @@ function App() {
     }
   };
 
-  // Handle card delete
+  // Handle card deletion
   const handleCardDelete = async (card) => {
     try {
       await api.deleteCard(card._id);
