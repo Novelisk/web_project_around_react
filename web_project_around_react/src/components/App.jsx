@@ -16,7 +16,7 @@ function App() {
   const [popup, setPopup] = useState(null);
   const [selectedCard, setSelectedCard] = useState(null);
 
-  // Load initial cards and current user info
+  // Load initial cards and current user information
   useEffect(() => {
     api
       .getUserInfo()
