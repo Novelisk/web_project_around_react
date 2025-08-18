@@ -1,84 +1,44 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import avatar_logo from '../../../images/profile_avatar.png';
-import Popup from './components/Popup/Popup';
-import NewCard from './components/NewCard/NewCard';
-import EditProfile from './components/EditProfile/EditProfile';
-import EditAvatar from './components/EditAvatar/EditAvatar';
 import Card from './components/Card/Card';
-import ImagePopup from './components/ImagePopup/ImagePopup';
+import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 
-const cards = [
-  {
-    isLiked: false,
-    _id: '5d1f0611d321eb4bdcd707dd',
-    name: 'Yosemite Valley',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg',
-    owner: '5d1f0611d321eb4bdcd707dd',
-    createdAt: '2019-07-05T08:10:57.741Z',
-  },
-  {
-    isLiked: false,
-    _id: '5d1f064ed321eb4bdcd707de',
-    name: 'Lake Louise',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg',
-    owner: '5d1f0611d321eb4bdcd707dd',
-    createdAt: '2019-07-05T08:11:58.324Z',
-  },
-];
-
-console.log(cards);
-
-function Main() {
-  const [popup, setPopup] = useState(null);
-  const [selectedCard, setSelectedCard] = useState(null);
-
-  const NewCardPopup = { title: 'Nuevo Lugar', children: <NewCard /> };
-  const EditProfilePopup = { title: 'Acerca de mi', children: <EditProfile /> };
-  const EditAvatarPopup = {
-    title: 'Cambiar foto de perfil',
-    children: <EditAvatar />,
-  };
-  const CardImagePopup = { title: '', children: <ImagePopup /> };
-
-  function handleOpenPopup(popup) {
-    setPopup(popup);
-  }
-
-  function handleClosePopup() {
-    setPopup(null);
-  }
+function Main(props) {
+  const { popups, onOpenPopup, onCardClick, cards, onCardLike, onCardDelete } =
+    props;
+  const { currentUser } = useContext(CurrentUserContext);
 
   return (
     <main className="content">
       <section className="profile">
         <div className="profile__avatar-container">
           <img
-            src={avatar_logo}
-            alt="Image of and avatar of the explorer Jacques Cousteau."
+            src={currentUser?.avatar || avatar_logo}
+            alt="Image of the avatar of the explorer Jacques Cousteau."
             className="profile__avatar"
           />
           <button
             aria-label="Edit avatar"
-            className="profile__avatar-edit"
+            className="profile__avatar-edit profile-avatar__edit"
             type="button"
-            onClick={() => handleOpenPopup(EditAvatarPopup)}
+            onClick={() => onOpenPopup(popups.editAvatar)}
           ></button>
         </div>
         <div className="profile__info">
-          <h2 className="profile__name">Jacques Cousteau</h2>
+          <h2 className="profile__name">{currentUser?.name}</h2>
           <button
             aria-label="Edit profile"
             className="profile__edit-btn"
             type="button"
-            onClick={() => handleOpenPopup(EditProfilePopup)}
+            onClick={() => onOpenPopup(popups.editProfile)}
           ></button>
-          <p className="profile__about">Explorador.</p>
+          <p className="profile__about">{currentUser?.about}</p>
         </div>
         <button
           aria-label="Add card"
           className="profile__add-btn"
           type="button"
-          onClick={() => handleOpenPopup(NewCardPopup)}
+          onClick={() => onOpenPopup(popups.newCard)}
         ></button>
       </section>
 
@@ -87,22 +47,14 @@ function Main() {
           <Card
             key={card._id}
             card={card}
-            handleOpenPopup={handleOpenPopup}
-            onCardClick={() => setSelectedCard(card)}
+            onCardClick={onCardClick}
+            onCardLike={onCardLike}
+            onCardDelete={onCardDelete}
           />
         ))}
       </section>
-
-      {popup && (
-        <Popup onClose={handleClosePopup} title={popup.title}>
-          {popup.children}
-        </Popup>
-      )}
-
-      {selectedCard && (
-        <ImagePopup card={selectedCard} onClose={() => setSelectedCard(null)} />
-      )}
     </main>
   );
 }
+
 export default Main;

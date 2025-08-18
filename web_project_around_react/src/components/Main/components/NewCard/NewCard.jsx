@@ -1,9 +1,22 @@
-function NewCard() {
+import { useState } from 'react';
+
+function NewCard({ onAddPlaceSubmit }) {
+  const [name, setName] = useState('');
+  const [link, setLink] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddPlaceSubmit({ name: name, link: link });
+    setName('');
+    setLink('');
+  };
+
   return (
     <form
       className="popup__form"
       name="card-form"
       id="new-card-form"
+      onSubmit={handleSubmit}
       noValidate
     >
       <label className="popup__field">
@@ -15,6 +28,8 @@ function NewCard() {
           name="name"
           placeholder="Nuevo lugar"
           type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           required
         />
         <div className="popup__underline"></div>
@@ -27,6 +42,8 @@ function NewCard() {
           name="link"
           placeholder="Enlace de la imagen"
           type="url"
+          value={link}
+          onChange={(e) => setLink(e.target.value)}
           required
         />
         <div className="popup__underline popup__underline_last"></div>
