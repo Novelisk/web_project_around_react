@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import avatar_logo from '../../../images/profile_avatar.png';
 import Card from './components/Card/Card';
 import CurrentUserContext from '../../contexts/CurrentUserContext.js';
+import Popup from './components/Popup/Popup.jsx';
 
 function Main(props) {
   const { popups, onOpenPopup, onCardClick, cards, onCardLike, onCardDelete } =
