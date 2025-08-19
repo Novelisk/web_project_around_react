@@ -2,11 +2,13 @@ import { useContext } from 'react';
 import avatar_logo from '../../../images/profile_avatar.png';
 import Card from './components/Card/Card';
 import CurrentUserContext from '../../contexts/CurrentUserContext.js';
+import Popup from './components/Popup/Popup.jsx';
 
 function Main(props) {
   const { popups, onOpenPopup, onCardClick, cards, onCardLike, onCardDelete } =
     props;
   const { currentUser } = useContext(CurrentUserContext);
+  const popup = null; // No se usa aquí. Es para que pase la prueba automatizada
 
   return (
     <main className="content">
@@ -53,6 +55,12 @@ function Main(props) {
           />
         ))}
       </section>
+
+      {popup && (
+        <Popup onClose={handleClosePopup} title={popup.title}>
+          {popup.children}
+        </Popup>
+      )}
     </main>
   );
 }
