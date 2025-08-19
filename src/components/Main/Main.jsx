@@ -54,6 +54,12 @@ function Main(props) {
           />
         ))}
       </section>
+
+      {/* {popup && (
+          <Popup onClose={handleClosePopup} title={popup.title}>
+            {popup.children}
+          </Popup>
+        )} */}
     </main>
   );
 }
